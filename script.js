@@ -1,7 +1,8 @@
 // Create a 16 x 16 grid
 const grid = document.querySelector('#grid');
 const gridStyle = window.getComputedStyle(grid);
-const gridWidth = gridStyle.getPropertyValue("width").substring(0, 3);
+const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
+const mouseToggle = false;
 
 for (let i = 0; i < 16; i++) {
     const row = document.createElement('div');
@@ -14,5 +15,11 @@ for (let i = 0; i < 16; i++) {
         block.style.width = gridWidth / 16 + "px";
         block.style.height = gridWidth / 16 + "px";
         row.appendChild(block);
+        
+        block.addEventListener('mouseover', (event) => {
+            event.preventDefault();
+            block.style.backgroundColor = '#000000';
+            console.log('change the background color');
+        });
     }
 }
