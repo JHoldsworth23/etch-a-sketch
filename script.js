@@ -18,7 +18,7 @@ for (let i = 0; i < 16; i++) {
         
         block.addEventListener('mouseover', (event) => {
             event.preventDefault();
-            block.style.backgroundColor = '#000000';
+            block.style.backgroundColor = 'rgb(0, 0, 0)';
             console.log('change the background color');
         });
     }
