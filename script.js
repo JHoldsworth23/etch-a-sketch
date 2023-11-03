@@ -3,8 +3,6 @@ const grid = document.querySelector('#grid');
 const gridStyle = window.getComputedStyle(grid);
 const gridWidth = gridStyle.getPropertyValue("width").substring(0, 3);
 
-const gridSize = document.querySelector('#grid-size');
-
 for (let i = 0; i < 16; i++) {
     const row = document.createElement('div');
     row.classList.add('row');
