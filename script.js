@@ -9,34 +9,37 @@ document.body.onmousedown = () => {mouseDown = true}
 document.body.onmouseup = () => {mouseDown = false}
 
 function createGrid(size) {
-    for (let i = 0; i < size; i++) {
-        const gridRow = document.createElement("div");
-        gridRow.classList.add("grid-row");
-        grid.appendChild(gridRow);
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
-        for (let j = 0; j < size; j++) {
-            const gridElement = document.createElement("div");
-            gridElement.classList.add("grid-element");
-            gridElement.style.width = gridWidth / size + "px";
-            gridElement.style.height = gridWidth / size + "px";
+    // for (let i = 0; i < size; i++) {
+    //     const gridRow = document.createElement("div");
+    //     gridRow.classList.add("grid-row");
+    //     grid.appendChild(gridRow);
+
+    //     for (let j = 0; j < size; j++) {
+    //         const gridElement = document.createElement("div");
+    //         gridElement.classList.add("grid-element");
+    //         gridElement.style.width = gridWidth / size + "px";
+    //         gridElement.style.height = gridWidth / size + "px";
             
-            gridElement.addEventListener("mouseover", (event) => {
-                if (event.type === 'mouseover' && !mouseDown) {
-                    return;
-                } else {
-                    gridElement.style.backgroundColor = "#000000";
-                }
-            });
-            gridElement.addEventListener("mousedown", (event) => {
-                if (event.type === 'mouseover' && !mouseDown) {
-                    return;
-                } else {
-                    gridElement.style.backgroundColor = "#000000";
-                }
-            });
-            gridRow.appendChild(gridElement);
-        }
-    }
+    //         gridElement.addEventListener("mouseover", (event) => {
+    //             if (event.type === 'mouseover' && !mouseDown) {
+    //                 return;
+    //             } else {
+    //                 gridElement.style.backgroundColor = "#000000";
+    //             }
+    //         });
+    //         gridElement.addEventListener("mousedown", (event) => {
+    //             if (event.type === 'mouseover' && !mouseDown) {
+    //                 return;
+    //             } else {
+    //                 gridElement.style.backgroundColor = "#000000";
+    //             }
+    //         });
+    //         gridRow.appendChild(gridElement);
+    //     }
+    // }
 }
 
 gridSize.addEventListener("change", () => {
