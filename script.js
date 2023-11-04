@@ -1,7 +1,6 @@
 const grid = document.querySelector("#grid-container");
-const gridStyle = window.getComputedStyle(grid);
-const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
 
+const DEFAULTSIZE = 16;
 const gridSize = document.querySelector("#grid-size");
 
 let mouseDown = false;
@@ -11,6 +10,12 @@ document.body.onmouseup = () => {mouseDown = false}
 function createGrid(size) {
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size ** 2; i++) {
+        const square = document.createElement("div");
+        square.classList.add("grid-element");
+        grid.appendChild(square);
+    }
 
     // for (let i = 0; i < size; i++) {
     //     const gridRow = document.createElement("div");
@@ -41,6 +46,8 @@ function createGrid(size) {
     //     }
     // }
 }
+
+createGrid(DEFAULTSIZE);
 
 gridSize.addEventListener("change", () => {
     let size = gridSize.value;
