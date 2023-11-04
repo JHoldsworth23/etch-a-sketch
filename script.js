@@ -2,16 +2,19 @@
 const grid = document.querySelector("#grid");
 const gridStyle = window.getComputedStyle(grid);
 const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
-const mouseToggle = false;
+
+let mousedown = false;
+document.body.onmousedown = () => {mousedown = true}
+document.body.onmouseup = () => {mousedown = false}
 
 for (let i = 0; i < 16; i++) {
     const row = document.createElement("div");
-    row.classList.add("row");
+    row.classList.add("grid-row");
     grid.appendChild(row);
 
     for (let j = 0; j < 16; j++) {
         const block = document.createElement("div");
-        block.classList.add("block");
+        block.classList.add("grid-element");
         block.style.width = gridWidth / 16 + "px";
         block.style.height = gridWidth / 16 + "px";
         row.appendChild(block);

@@ -4,13 +4,13 @@
     border: 3px solid #000000;
 }
 
-.row {
+.grid-row {
     display: flex;
     justify-content: start;
     align-items: center;
     margin: 0;
 }
 
-.block {
+.grid-element {
     border: 1px solid tomato;
 }
