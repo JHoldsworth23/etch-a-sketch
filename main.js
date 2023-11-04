@@ -4,6 +4,10 @@ const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
 
 let defaultSize = 16;
 
+let mouseDown = false;
+document.body.onmousedown = () => {mouseDown = true}
+document.body.onmouseup = () => {mouseDown = false}
+
 function createGrid(defaultSize) {
     for (let i = 0; i < defaultSize; i++) {
         const gridRow = document.createElement("div");
@@ -16,8 +20,15 @@ function createGrid(defaultSize) {
             gridElement.style.width = gridWidth / defaultSize + "px";
             gridElement.style.height = gridWidth / defaultSize + "px";
             
-            gridElement.addEventListener("mouseover", () => {
-                console.log("Change the color!")
+            gridElement.addEventListener("mouseover", (event) => {
+                if (event.type === 'mouseover' && !mouseDown) {
+                    return;
+                } else {
+                    gridElement.style.backgroundColor = "#000000";
+                }
+            });
+            gridElement.addEventListener("mousedown", () => {
+                console.log("this function works")
             });
             gridRow.appendChild(gridElement);
         }
