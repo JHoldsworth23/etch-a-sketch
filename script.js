@@ -4,6 +4,8 @@ const DEFAULT_COLOR = "rgb(0, 0, 0)";
 const grid = document.querySelector("#grid-container");
 const gridSize = document.querySelector("#grid-size");
 
+const colorWheel = document.querySelector("#color-wheel");
+
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true}
 document.body.onmouseup = () => {mouseDown = false}
@@ -30,6 +32,11 @@ function drawGrid(event) {
 }
 
 createGrid(DEFAULT_SIZE);
+
+colorWheel.addEventListener('change', () => {
+    let color = colorWheel.value;
+    console.log(color);
+});
 
 gridSize.addEventListener("change", () => {
     let size = gridSize.value;
