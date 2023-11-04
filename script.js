@@ -1,4 +1,4 @@
-const grid = document.querySelector("#grid");
+const grid = document.querySelector("#grid-container");
 const gridStyle = window.getComputedStyle(grid);
 const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
 
