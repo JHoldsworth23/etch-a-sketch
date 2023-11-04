@@ -3,26 +3,37 @@ const grid = document.querySelector("#grid");
 const gridStyle = window.getComputedStyle(grid);
 const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
 
-let mousedown = false;
-document.body.onmousedown = () => {mousedown = true}
-document.body.onmouseup = () => {mousedown = false}
+let gridSize = 16;
 
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement("div");
-    row.classList.add("grid-row");
-    grid.appendChild(row);
+let mouseDown = false;
+document.body.onmousedown = () => {mouseDown = true}
+document.body.onmouseup = () => {mouseDown = false}
 
-    for (let j = 0; j < 16; j++) {
-        const block = document.createElement("div");
-        block.classList.add("grid-element");
-        block.style.width = gridWidth / 16 + "px";
-        block.style.height = gridWidth / 16 + "px";
-        row.appendChild(block);
-        
-        block.addEventListener("mouseover", (event) => {
-            event.preventDefault();
-            block.style.backgroundColor = "rgb(0, 0, 0)";
-            console.log("change the background color");
-        });
+function createGrid(size) {
+    for (let i = 0; i < size; i++) {
+        const gridRow = document.createElement("div");
+        gridRow.classList.add("grid-row");
+        grid.appendChild(gridRow);
+
+        for (let j = 0; j < size; j++) {
+            const gridElement = document.createElement("div");
+            gridElement.classList.add("grid-element");
+            gridElement.style.width = gridWidth / size + "px";
+            gridElement.style.height = gridWidth / size + "px";
+            
+            gridElement.addEventListener("mouseover", (event) => {
+                if (event.type === 'mouseover' && !mouseDown) {
+                    return;
+                } else {
+                    gridElement.style.backgroundColor = "#000000";
+                }
+            });
+            gridElement.addEventListener("mousedown", () => {
+                console.log("this function works")
+            });
+            gridRow.appendChild(gridElement);
+        }
     }
 }
+
+createGrid(gridSize);
