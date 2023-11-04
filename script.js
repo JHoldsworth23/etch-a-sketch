@@ -21,22 +21,18 @@ function createGrid(size) {
     const allSquares = document.querySelectorAll(".grid-element");
 
     allSquares.forEach((square) => {
-        square.addEventListener("mouseover", (event) => {
-            if (event.type === "mouseover" && !mouseDown) {
-                return;
-            } else {
-                square.style.backgroundColor = DEFAULT_COLOR;
-            }
-        });
+        square.addEventListener("mouseover", drawGrid);
 
-        square.addEventListener("mousedown", (event) => {
-            if (event.type === "mouseover" && !mouseDown) {
-                return;
-            } else {
-                square.style.backgroundColor = DEFAULT_COLOR;
-            }
-        });
+        square.addEventListener("mousedown", drawGrid);
     });
+}
+
+function drawGrid(event) {
+    if (event.type === "mouseover" && !mouseDown) {
+        return;
+    } else {
+        event.target.style.backgroundColor = DEFAULT_COLOR;
+    }
 }
 
 createGrid(DEFAULT_SIZE);
