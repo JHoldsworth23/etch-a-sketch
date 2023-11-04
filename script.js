@@ -1,6 +1,7 @@
-const grid = document.querySelector("#grid-container");
+const DEFAULT_SIZE = 24;
+const DEFAULT_COLOR = "rgb(0, 0, 0)";
 
-const DEFAULTSIZE = 24;
+const grid = document.querySelector("#grid-container");
 const gridSize = document.querySelector("#grid-size");
 
 let mouseDown = false;
@@ -24,7 +25,7 @@ function createGrid(size) {
             if (event.type === "mouseover" && !mouseDown) {
                 return;
             } else {
-                square.style.backgroundColor = "rgb(0, 0, 0)";
+                square.style.backgroundColor = DEFAULT_COLOR;
             }
         });
 
@@ -32,13 +33,13 @@ function createGrid(size) {
             if (event.type === "mouseover" && !mouseDown) {
                 return;
             } else {
-                square.style.backgroundColor = "rgb(0, 0, 0)";
+                square.style.backgroundColor = DEFAULT_COLOR;
             }
         });
     });
 }
 
-createGrid(DEFAULTSIZE);
+createGrid(DEFAULT_SIZE);
 
 gridSize.addEventListener("change", () => {
     let size = gridSize.value;
