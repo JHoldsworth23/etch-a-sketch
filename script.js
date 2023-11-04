@@ -3,7 +3,7 @@ const grid = document.querySelector("#grid");
 const gridStyle = window.getComputedStyle(grid);
 const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
 
-let gridSize = 16;
+let gridSize = document.querySelector("#grid-size");
 
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true}
@@ -28,12 +28,16 @@ function createGrid(size) {
                     gridElement.style.backgroundColor = "#000000";
                 }
             });
-            gridElement.addEventListener("mousedown", () => {
-                console.log("this function works")
+            gridElement.addEventListener("mousedown", (event) => {
+                if (event.type === 'mouseover' && !mouseDown) {
+                    return;
+                } else {
+                    gridElement.style.backgroundColor = "#000000";
+                }
             });
             gridRow.appendChild(gridElement);
         }
     }
 }
 
-createGrid(gridSize);
+createGrid(gridSize.value);
