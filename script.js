@@ -1,6 +1,6 @@
 const grid = document.querySelector("#grid-container");
 
-const DEFAULTSIZE = 16;
+const DEFAULTSIZE = 24;
 const gridSize = document.querySelector("#grid-size");
 
 let mouseDown = false;
