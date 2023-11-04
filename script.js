@@ -15,16 +15,10 @@ function createGrid(size) {
     for (let i = 0; i < size ** 2; i++) {
         const square = document.createElement("div");
         square.classList.add("grid-element");
+        square.addEventListener("mouseover", drawGrid);
+        square.addEventListener("mousedown", drawGrid);
         grid.appendChild(square);
     }
-
-    const allSquares = document.querySelectorAll(".grid-element");
-
-    allSquares.forEach((square) => {
-        square.addEventListener("mouseover", drawGrid);
-
-        square.addEventListener("mousedown", drawGrid);
-    });
 }
 
 function drawGrid(event) {
