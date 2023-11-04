@@ -1,9 +1,8 @@
-// Create a 16 x 16 grid
 const grid = document.querySelector("#grid");
 const gridStyle = window.getComputedStyle(grid);
 const gridWidth = gridStyle.getPropertyValue("width").split("p")[0];
 
-let gridSize = document.querySelector("#grid-size");
+const gridSize = document.querySelector("#grid-size");
 
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true}
@@ -40,4 +39,10 @@ function createGrid(size) {
     }
 }
 
-createGrid(gridSize.value);
+gridSize.addEventListener("change", () => {
+    let size = gridSize.value;
+
+    grid.innerHTML = "";
+
+    createGrid(size);
+});
