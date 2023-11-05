@@ -85,6 +85,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     background-color: transparent;
+    margin-top: -20px;
 }
 
 #slider::-webkit-slider-thumb {
