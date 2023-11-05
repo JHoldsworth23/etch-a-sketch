@@ -27,7 +27,26 @@ clearBtn.addEventListener("click", () => {clearGrid()});
 slider.addEventListener("mousemove", (event) => {sizeValue.innerHTML = `${event.target.value} x ${event.target.value}`});
 slider.addEventListener("change", () => {clearGrid()});
 
+function activateButton(newMode) {
+    if (mode === "colour") {
+        colourBtn.classList.remove("active");
+    } else if (mode === "rainbow") {
+        rainbowBtn.classList.remove("active");
+    } else if (mode === "erase") {
+        eraseBtn.classList.remove("active");
+    }
+
+    if (newMode === "colour") {
+        colourBtn.classList.add("active");
+    } else if (newMode === "rainbow") {
+        rainbowBtn.classList.add("active");
+    } else if (newMode === "erase") {
+        eraseBtn.classList.add("active");
+    }
+}
+
 function setCurrentMode(currentMode) {
+    activateButton(currentMode);
     mode = currentMode;
 }
 
