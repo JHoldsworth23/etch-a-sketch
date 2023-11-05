@@ -35,6 +35,25 @@ body {
     border: 3px solid #000000;
 }
 
+.setting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #969FC5;
+    width: 200px;
+    height: 500px;
+    margin-right: 32px;
+    border-radius: 16px;
+}
+
 .grid-bg-colour {
     display: flex;
     justify-content: center;
@@ -57,5 +76,3 @@ body {
 .grid-element {
     border: 1px solid rgb(173, 173, 173);
 }
-
-/* #96B6C5 */
