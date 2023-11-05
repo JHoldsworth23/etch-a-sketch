@@ -8,21 +8,26 @@
     </head>
 
     <body>
-        <div>
-            <input type="color" id="colour-wheel" value="#000000">
+        <h1 class="title">Etch-a-Sketch</h1>
+        <div class="main-content">
             <div>
-                <button class="colour-mode">Colour Mode</button>
-                <button class="rainbow-mode">Rainbow Mode</button>
-                <button class="erase-mode">Erase Mode</button>
-                <button class="clear-mode">Clear</button>
-            </div>
-            <p>Grid Size:</p>
-            <div id="grid-size-value">24 x 24</div>
-            <input type="range" id="slider" min="1" max="64" value="24">
-            
-        </div>        
+                <input type="color" id="colour-wheel" value="#000000">
+                <div class="setting">
+                    <button class="btn colour-mode">Colour Mode</button>
+                    <button class="btn rainbow-mode">Rainbow Mode</button>
+                    <button class="btn erase-mode">Erase Mode</button>
+                    <button class="btn clear-mode">Clear</button>
+                </div>
+                <p class="grid-text">Grid Size:</p>
+                <div id="grid-size-value">24 x 24</div>
+                <input type="range" id="slider" min="1" max="64" value="24">
+            </div>        
 
-        <div id="grid-container"></div>
+            <div class="grid-bg-colour">
+               <div id="grid-container"></div> 
+            </div>
+        </div>
+        
 
         <script src="./script.js"></script>
     </body>
