@@ -13,6 +13,7 @@ const colourWheel = document.querySelector("#colour-wheel");
 const colourBtn = document.querySelector(".colour-mode");
 const rainbowBtn = document.querySelector(".rainbow-mode");
 const eraseBtn = document.querySelector(".erase-mode");
+const clearBtn = document.querySelector(".clear-mode");
 
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true}
@@ -21,12 +22,10 @@ document.body.onmouseup = () => {mouseDown = false}
 colourBtn.addEventListener("click", () => {setCurrentMode("colour")});
 rainbowBtn.addEventListener("click", () => {setCurrentMode("rainbow")});
 eraseBtn.addEventListener("click", () => {setCurrentMode("erase")});
+clearBtn.addEventListener("click", () => {clearGrid()});
 
-slider.addEventListener("mousemove", (event) => {sizeValue.innerHTML = `Grid size: ${event.target.value} x ${event.target.value}`});
-slider.addEventListener("change", () => {
-    clearGrid();
-    createGrid(slider.value);
-});
+slider.addEventListener("mousemove", (event) => {sizeValue.innerHTML = `${event.target.value} x ${event.target.value}`});
+slider.addEventListener("change", () => {clearGrid()});
 
 function setCurrentMode(currentMode) {
     mode = currentMode;
@@ -34,6 +33,7 @@ function setCurrentMode(currentMode) {
 
 function clearGrid() {
     grid.innerHTML = "";
+    createGrid(slider.value);
 }
 
 function createGrid(size) {
@@ -58,7 +58,6 @@ function draw(event) {
         const red = Math.floor(Math.random() * 255);
         const green = Math.floor(Math.random() * 255);
         const blue = Math.floor(Math.random() * 255);
-
         event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     } else if (mode === "erase") {
         event.target.style.backgroundColor = "#FFFFFF";
