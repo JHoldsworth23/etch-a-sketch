@@ -16,6 +16,19 @@ body {
     align-items: center;
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #969FC5;
+    width: 200px;
+    height: 500px;
+    padding: 16px;
+    border-radius: 16px;
+    margin-right: 32px;
+}
+
 #colour-wheel {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -33,19 +46,6 @@ body {
 #colour-wheel::-moz-color-swatch {
     border-radius: 50%;
     border: 3px solid #000000;
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #969FC5;
-    width: 200px;
-    height: 500px;
-    padding: 16px;
-    border-radius: 16px;
-    margin-right: 32px;
 }
 
 .setting {
