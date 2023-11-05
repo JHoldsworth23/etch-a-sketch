@@ -16,6 +16,25 @@ body {
     align-items: center;
 }
 
+#colour-wheel {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 80px;
+    height: 80px;
+    border: none;
+    cursor: pointer;
+}
+#colour-wheel::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 3px solid #000000;
+}
+#colour-wheel::-moz-color-swatch {
+    border-radius: 50%;
+    border: 3px solid #000000;
+}
+
 .grid-bg-colour {
     display: flex;
     justify-content: center;
