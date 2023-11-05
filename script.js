@@ -1,22 +1,40 @@
-const DEFAULT_SIZE = 24;
-const DEFAULT_COLOUR = "rgb(0, 0, 0)";
 const DEFAULT_MODE = "colour";
+const DEFAULT_COLOUR = "#000000";
+const DEFAULT_SIZE = 24;
+
+let colour = DEFAULT_COLOUR;
+let mode = DEFAULT_MODE;
 
 const grid = document.querySelector("#grid-container");
-const gridSize = document.querySelector("#grid-size");
-const gridSizeValue = document.querySelector("#grid-size-value");
-
+const sizeValue = document.querySelector("#grid-size-value");
+const slider = document.querySelector("#slider");
 const colourWheel = document.querySelector("#colour-wheel");
-let colour = DEFAULT_COLOUR;
 
-const colourMode = document.querySelector(".colour-mode");
-const rainbowMode = document.querySelector(".rainbow-mode");
-const eraseMode = document.querySelector(".erase-mode");
-let mode = DEFAULT_MODE;
+const colourBtn = document.querySelector(".colour-mode");
+const rainbowBtn = document.querySelector(".rainbow-mode");
+const eraseBtn = document.querySelector(".erase-mode");
 
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true}
 document.body.onmouseup = () => {mouseDown = false}
+
+colourBtn.addEventListener("click", () => {setCurrentMode("colour")});
+rainbowBtn.addEventListener("click", () => {setCurrentMode("rainbow")});
+eraseBtn.addEventListener("click", () => {setCurrentMode("erase")});
+
+slider.addEventListener("mousemove", (event) => {sizeValue.innerHTML = `Grid size: ${event.target.value} x ${event.target.value}`});
+slider.addEventListener("change", () => {
+    clearGrid();
+    createGrid(slider.value);
+});
+
+function setCurrentMode(currentMode) {
+    mode = currentMode;
+}
+
+function clearGrid() {
+    grid.innerHTML = "";
+}
 
 function createGrid(size) {
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -25,17 +43,17 @@ function createGrid(size) {
     for (let i = 0; i < size ** 2; i++) {
         const square = document.createElement("div");
         square.classList.add("grid-element");
-        square.addEventListener("mouseover", drawGrid);
-        square.addEventListener("mousedown", drawGrid);
+        square.addEventListener("mouseover", draw);
+        square.addEventListener("mousedown", draw);
         grid.appendChild(square);
     }
 }
 
-function drawGrid(event) {
+function draw(event) {
     if (event.type === "mouseover" && !mouseDown) {
         return;
     } else if (mode === "colour") {
-        event.target.style.backgroundColor = colour;
+        event.target.style.backgroundColor = colourWheel.value;
     } else if (mode === "rainbow") {
         const red = Math.floor(Math.random() * 255);
         const green = Math.floor(Math.random() * 255);
@@ -48,29 +66,3 @@ function drawGrid(event) {
 }
 
 createGrid(DEFAULT_SIZE);
-
-colourWheel.addEventListener("change", () => {
-    colour = colourWheel.value;
-});
-
-gridSize.addEventListener("mousemove", (event) => {
-    gridSizeValue.innerHTML = `Grid size: ${event.target.value} x ${event.target.value}`;
-});
-
-gridSize.addEventListener("change", () => {
-    grid.innerHTML = "";
-
-    createGrid(gridSize.value);
-});
-
-colourMode.addEventListener("click", () => {
-    mode = "colour"
-});
-
-rainbowMode.addEventListener("click", () => {
-    mode = "rainbow";
-});
-
-eraseMode.addEventListener("click", () => {
-    mode = "erase";
-});
