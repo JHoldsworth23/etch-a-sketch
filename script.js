@@ -4,8 +4,8 @@ const DEFAULT_COLOR = "rgb(0, 0, 0)";
 const grid = document.querySelector("#grid-container");
 const gridSize = document.querySelector("#grid-size");
 
-const colorWheel = document.querySelector("#color-wheel");
-let color = DEFAULT_COLOR;
+const colourWheel = document.querySelector("#colour-wheel");
+let colour = DEFAULT_COLOR;
 
 let mouseDown = false;
 document.body.onmousedown = () => {mouseDown = true}
@@ -28,14 +28,14 @@ function drawGrid(event) {
     if (event.type === "mouseover" && !mouseDown) {
         return;
     } else {
-        event.target.style.backgroundColor = color;
+        event.target.style.backgroundColor = colour;
     }
 }
 
 createGrid(DEFAULT_SIZE);
 
-colorWheel.addEventListener('change', () => {
-    color = colorWheel.value;
+colourWheel.addEventListener('change', () => {
+    colour = colourWheel.value;
 });
 
 gridSize.addEventListener("change", () => {
