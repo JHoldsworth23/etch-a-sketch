@@ -80,6 +80,38 @@ body {
     margin-top: -24px;
 }
 
+#slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+}
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    background-color: #E1AD21;
+    cursor: pointer;
+}
+#slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    background-color: #E1AD21;
+    cursor: pointer;
+}
+#slider::-ms-thumb {
+    height: 20px;
+    width: 20px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    background-color: #E1AD21;
+    cursor: pointer;
+}
+
 .grid-bg-colour {
     display: flex;
     justify-content: center;
