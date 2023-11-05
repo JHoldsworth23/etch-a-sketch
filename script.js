@@ -11,6 +11,7 @@ let colour = DEFAULT_COLOUR;
 
 const colourMode = document.querySelector(".colour-mode");
 const rainbowMode = document.querySelector(".rainbow-mode");
+const eraseMode = document.querySelector(".erase-mode");
 let mode = DEFAULT_MODE;
 
 let mouseDown = false;
@@ -41,6 +42,8 @@ function drawGrid(event) {
         const blue = Math.floor(Math.random() * 255);
 
         event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    } else if (mode === "erase") {
+        event.target.style.backgroundColor = "#FFFFFF";
     }
 }
 
@@ -63,4 +66,8 @@ colourMode.addEventListener("click", () => {
 
 rainbowMode.addEventListener("click", () => {
     mode = "rainbow";
+});
+
+eraseMode.addEventListener("click", () => {
+    mode = "erase";
 });
