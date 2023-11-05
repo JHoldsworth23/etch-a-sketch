@@ -4,7 +4,7 @@ const DEFAULT_MODE = "colour";
 
 const grid = document.querySelector("#grid-container");
 const gridSize = document.querySelector("#grid-size");
-const gridText = document.querySelector(".grid-size-text");
+const gridSizeValue = document.querySelector("#grid-size-value");
 
 const colourWheel = document.querySelector("#colour-wheel");
 let colour = DEFAULT_COLOUR;
@@ -53,8 +53,11 @@ colourWheel.addEventListener("change", () => {
     colour = colourWheel.value;
 });
 
+gridSize.addEventListener("mousemove", (event) => {
+    gridSizeValue.innerHTML = `Grid size: ${event.target.value} x ${event.target.value}`;
+});
+
 gridSize.addEventListener("change", () => {
-    gridText.textContent = `Grid size: ${gridSize.value} x ${gridSize.value}`;
     grid.innerHTML = "";
 
     createGrid(gridSize.value);
