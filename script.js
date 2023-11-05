@@ -1,9 +1,8 @@
-const DEFAULT_MODE = "colour";
 const DEFAULT_COLOUR = "#000000";
 const DEFAULT_SIZE = 24;
 
 let colour = DEFAULT_COLOUR;
-let mode = DEFAULT_MODE;
+let mode;
 
 const grid = document.querySelector("#grid-container");
 const sizeValue = document.querySelector("#grid-size-value");
