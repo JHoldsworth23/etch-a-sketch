@@ -10,17 +10,15 @@ body {
     margin: 50px;
 }
 
-.main-content {
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .options {
-    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     background-color: #969FC5;
     width: 200px;
     height: 500px;
@@ -49,10 +47,7 @@ body {
 }
 
 .setting {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 16px;
 }
 
@@ -139,9 +134,6 @@ body {
 }
 
 .grid-bg-colour {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 500px;
     height: 500px;
     background-color: #E1AD21;
@@ -159,4 +151,22 @@ body {
 
 .grid-element {
     border: 1px solid rgb(173, 173, 173);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #969FC5;
+    gap: 16px;
+    font-size: 18px;
+}
+
+.fa-github {
+    color: #000;
+    font-size: 24px;
+}
+
+.fa-github:hover {
+    color: #FFFFFF;
 }
