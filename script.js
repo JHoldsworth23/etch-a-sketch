@@ -111,10 +111,10 @@ function draw(event) {
         event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     } else if (mode === "darken") {
         const currentRGBColor = event.target.style.backgroundColor;
-        event.target.style.backgroundColor = shadeColour(currentRGBColor, -10);
+        event.target.style.backgroundColor = shadeColour(currentRGBColor, -5);
     } else if (mode === "lighten") {
         const currentRGBColor = event.target.style.backgroundColor;
-        event.target.style.backgroundColor = shadeColour(currentRGBColor, 10);
+        event.target.style.backgroundColor = shadeColour(currentRGBColor, 5);
     } else if (mode === "erase") {
         event.target.style.backgroundColor = "#FFFFFF";
     }
