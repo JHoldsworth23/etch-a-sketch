@@ -12,6 +12,8 @@ const colourWheel = document.querySelector("#colour-wheel");
 const colourBtn = document.querySelector(".colour-mode");
 const rainbowBtn = document.querySelector(".rainbow-mode");
 const eraseBtn = document.querySelector(".erase-mode");
+const darkenBtn = document.querySelector(".darken-mode");
+const lightenBtn = document.querySelector(".lighten-mode")
 const clearBtn = document.querySelector(".clear-mode");
 
 let mouseDown = false;
@@ -21,6 +23,8 @@ document.body.onmouseup = () => {mouseDown = false}
 colourBtn.addEventListener("click", () => {setCurrentMode("colour")});
 rainbowBtn.addEventListener("click", () => {setCurrentMode("rainbow")});
 eraseBtn.addEventListener("click", () => {setCurrentMode("erase")});
+darkenBtn.addEventListener("click", () => {setCurrentMode("darken")});
+lightenBtn.addEventListener("click", () => {setCurrentMode("lighten")});
 clearBtn.addEventListener("click", () => {clearGrid()});
 
 slider.addEventListener("mousemove", (event) => {sizeValue.innerHTML = `${event.target.value} x ${event.target.value}`});
@@ -31,6 +35,10 @@ function activateButton(newMode) {
         colourBtn.classList.remove("active");
     } else if (mode === "rainbow") {
         rainbowBtn.classList.remove("active");
+    } else if (mode === "darken") {
+        darkenBtn.classList.remove("active");
+    } else if (mode === "lighten") {
+        lightenBtn.classList.remove("active");
     } else if (mode === "erase") {
         eraseBtn.classList.remove("active");
     }
@@ -39,6 +47,10 @@ function activateButton(newMode) {
         colourBtn.classList.add("active");
     } else if (newMode === "rainbow") {
         rainbowBtn.classList.add("active");
+    } else if (newMode === "darken") {
+        darkenBtn.classList.add("active");
+    } else if (newMode === "lighten") {
+        lightenBtn.classList.add("active");
     } else if (newMode === "erase") {
         eraseBtn.classList.add("active");
     }
