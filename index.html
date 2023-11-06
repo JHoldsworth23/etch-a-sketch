@@ -6,14 +6,15 @@
         <title>Etch-a-Sketch</title>
         <link rel="icon" type="image/x-icon" href="./favicon/picture-frame.png">
         <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
         <h1 class="title">Etch-a-Sketch</h1>
-        <div class="main-content">
-            <div class="options">
+        <div class="main-content flex-center">
+            <div class="options flex-center">
                 <input type="color" id="colour-wheel" value="#000000">
-                <div class="setting">
+                <div class="setting flex-center">
                     <button class="btn colour-mode">Colour Mode</button>
                     <button class="btn rainbow-mode">Rainbow Mode</button>
                     <button class="btn erase-mode">Erase Mode</button>
@@ -24,10 +25,15 @@
                 <input type="range" id="slider" min="1" max="64" value="24">
             </div>        
 
-            <div class="grid-bg-colour">
+            <div class="grid-bg-colour flex-center">
                <div id="grid-container"></div> 
             </div>
         </div>
+
+        <footer class="flex-center">
+            <p>Copyright © JHoldsworth23</p>
+            <a href="https://github.com/JHoldsworth23" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+        </footer>
 
         <script src="./script.js"></script>
     </body>
