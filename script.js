@@ -79,23 +79,18 @@ function createGrid(size) {
     }
 }
 
+function getColourValue(colour, percent) {
+    colour = parseInt(colour * (100 + percent) / 100);
+    colour = (colour < 255) ? colour : 255;
+    return Math.round(colour)
+}
+
 function shadeColour(rgbColor, percent) {
     rgbColorValue = rgbColor.substring(4, rgbColor.length - 1).split(",");
-    let red = parseInt(rgbColorValue[0]);
-    let green = parseInt(rgbColorValue[1]);
-    let blue = parseInt(rgbColorValue[2]);
 
-    red = parseInt(red * (100 + percent) / 100);
-    green = parseInt(green * (100 + percent) / 100);
-    blue = parseInt(blue * (100 + percent) / 100);
-
-    red = (red < 255) ? red : 255;
-    green = (green < 255) ? green : 255;
-    blue = (blue < 255) ? blue : 255;
-
-    red = Math.round(red);
-    green = Math.round(green);
-    blue = Math.round(blue);
+    const red = getColourValue(parseInt(rgbColorValue[0]), percent)
+    const green = getColourValue(parseInt(rgbColorValue[1]), percent)
+    const blue = getColourValue(parseInt(rgbColorValue[2]), percent)
 
     const RR = ((red.toString(16).length == 1) ? "0"+red.toString(16) : red.toString(16));
     const GG = ((green.toString(16).length == 1) ? "0"+green.toString(16) : green.toString(16));
