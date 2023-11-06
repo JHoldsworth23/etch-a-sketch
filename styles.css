@@ -21,7 +21,7 @@ body {
     justify-content: space-evenly;
     background-color: #969FC5;
     width: 200px;
-    height: 500px;
+    height: auto;
     padding: 16px;
     border-radius: 16px;
     margin-right: 32px;
@@ -36,6 +36,7 @@ body {
     height: 80px;
     border: none;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 #colour-wheel::-webkit-color-swatch {
     border-radius: 50%;
@@ -61,18 +62,25 @@ body {
     cursor: pointer;
 }
 
+hr {
+    width: 110%;
+    height: 2px;
+    background-color: #000000;
+    border: none;
+    margin: 0;
+}
+
 .btn:hover, .btn.active {
     background-color: #FEFEFE;
 }
 
 .grid-text {
     font-size: 18px;
-    margin: 0;
+    margin: 12px 0 0;
 }
 
 #grid-size-value {
     font-size: 18px;
-    margin-top: -24px;
 }
 
 #slider {
@@ -80,7 +88,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     background-color: transparent;
-    margin-top: -20px;
+    margin: 14px;
 }
 
 #slider::-webkit-slider-thumb {
