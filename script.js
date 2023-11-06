@@ -15,10 +15,13 @@ const eraseBtn = document.querySelector(".erase-mode");
 const darkenBtn = document.querySelector(".darken-mode");
 const lightenBtn = document.querySelector(".lighten-mode")
 const clearBtn = document.querySelector(".clear-mode");
+const gridToggleBtn = document.querySelector(".grid-toggle");
 
-let mouseDown = false;
+let mouseDown = true;
 document.body.onmousedown = () => {mouseDown = true}
 document.body.onmouseup = () => {mouseDown = false}
+
+let gridBorder = true;
 
 colourBtn.addEventListener("click", () => {setCurrentMode("colour")});
 rainbowBtn.addEventListener("click", () => {setCurrentMode("rainbow")});
@@ -26,9 +29,29 @@ eraseBtn.addEventListener("click", () => {setCurrentMode("erase")});
 darkenBtn.addEventListener("click", () => {setCurrentMode("darken")});
 lightenBtn.addEventListener("click", () => {setCurrentMode("lighten")});
 clearBtn.addEventListener("click", () => {clearGrid()});
+gridToggleBtn.addEventListener("click", () => {gridToggle()});
 
 slider.addEventListener("mousemove", (event) => {sizeValue.innerHTML = `${event.target.value} x ${event.target.value}`});
-slider.addEventListener("change", () => {clearGrid()});
+slider.addEventListener("change", () => {
+    clearGrid();
+});
+
+function gridToggle() {
+    gridBorder = gridBorder === false ? true : false;
+    let border = document.querySelectorAll(".grid-element");
+    if (gridBorder) {
+        border = document.querySelectorAll(".square");
+        border.forEach((div) => {div.classList.add("grid-element")});
+        gridToggleBtn.classList.remove("disabled");
+        gridToggleBtn.classList.add("enabled");
+        gridToggleBtn.textContent = "Grid toggle ON";
+    } else if (gridBorder === false) {
+        border.forEach((element) => {element.classList.remove("grid-element")});
+        gridToggleBtn.classList.remove("enabled");
+        gridToggleBtn.classList.add("disabled");
+        gridToggleBtn.textContent = "Grid toggle OFF";
+    }
+}
 
 function activateButton(newMode) {
     if (mode === "colour") {
@@ -72,7 +95,8 @@ function createGrid(size) {
 
     for (let i = 0; i < size ** 2; i++) {
         const square = document.createElement("div");
-        square.classList.add("grid-element");
+        square.classList.add("square");
+        if (gridBorder) square.classList.add("grid-element");
         square.addEventListener("mouseover", draw);
         square.addEventListener("mousedown", draw);
         grid.appendChild(square);
