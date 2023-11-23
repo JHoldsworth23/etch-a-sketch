@@ -47,7 +47,7 @@ body {
     border: 3px solid #000000;
 }
 
-.setting {
+input + div {
     flex-direction: column;
     gap: 16px;
 }
@@ -185,11 +185,11 @@ footer {
     font-size: 18px;
 }
 
-.fa-github {
+[class$="hub"] {
     color: #000;
     font-size: 24px;
 }
 
-.fa-github:hover {
+[class$="hub"]:hover {
     color: #FFFFFF;
 }
