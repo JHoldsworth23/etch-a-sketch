@@ -52,7 +52,7 @@ body {
     gap: 16px;
 }
 
-.btn {
+div > button {
     background-color: #E1AD21;
     font-size: 16px;
     font-weight: bold;
@@ -70,11 +70,11 @@ hr {
     margin: 0;
 }
 
-.btn:hover, .btn.active {
+button:hover, button.active {
     background-color: #FEFEFE;
 }
 
-.btn.enabled:hover, .btn.disabled:hover {
+button.enabled:hover, button.disabled:hover {
     color: #000000;
 }
 
